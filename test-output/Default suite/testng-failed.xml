@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="smapletest.loginTest">
+      <class name="smapletest.AlertTest">
         <methods>
-          <include name="setup"/>
           <include name="tearDown"/>
-          <include name="loginTest05"/>
+          <include name="radioBtnTest01"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- smapletest.loginTest -->
+      </class> <!-- smapletest.AlertTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

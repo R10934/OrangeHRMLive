@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -143,7 +144,7 @@ public class loginTest {
 	}
 	
 	
-	@Test
+	@Test(enabled = false)
 	public void loginTest05()
 	{		
 		
@@ -174,19 +175,80 @@ public class loginTest {
 			
 			Assert.assertEquals(headerRows.size(), 5);
 			
-			Assert.assertEquals(headerRows.get(1).getText(), "Username1");
+			Assert.assertEquals(headerRows.get(1).getText(), "Username"); // 1. User Name  2. UserName 3. UN 4. username 5. UserN@me
 			
 			//System.out.println(headerRows.get(1).getText());
+			Assert.assertNotNull(headerRows.get(1).getText(), "User Name can't ne empty");
 			
-			
-			
-			
-			
+			Assert.assertNotEquals(headerRows.get(1).getText(), "User Name");
+		}
 		
 			
 			
 		}	
 		
+		
+		@Test
+		public void loginTest06()
+		{		
+			
+			if(validLogin())
+			{
+				
+				driver.findElement(By.cssSelector("#menu_admin_viewAdminModule > b")).click();
+				
+				WebElement admin = driver.findElement(By.id("menu_admin_viewAdminModule"));
+				admin.click();
+				
+				Assert.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/admin/viewSystemUsers");
+				
+				driver.findElement(By.id("searchSystemUser_userName")).sendKeys("Admin");
+				
+				Select dropdown = new Select(driver.findElement(By.id("searchSystemUser_status")));
+				
+				List<WebElement>  dropdownOptions = dropdown.getOptions();
+				
+				for (WebElement webElement : dropdownOptions) {
+					System.out.println(webElement.getText());
+				}
+				
+				
+				
+				
+				
+				driver.findElement(By.id("searchBtn")).click();
+				
+				
+				
+				
+				WebElement resultTable = driver.findElement(By.id("resultTable"));
+				
+				
+				List<WebElement> headerRows = resultTable.findElements(By.xpath(".//thead/tr/th"));
+				
+				for (WebElement webElement : headerRows) {
+					
+					System.out.println(webElement.getText());
+					
+				}
+				
+				Assert.assertEquals(headerRows.size(), 5);
+				
+				Assert.assertEquals(headerRows.get(1).getText(), "Username"); // 1. User Name  2. UserName 3. UN 4. username 5. UserN@me
+				
+				//System.out.println(headerRows.get(1).getText());
+				Assert.assertNotNull(headerRows.get(1).getText(), "User Name can't ne empty");
+				
+				Assert.assertNotEquals(headerRows.get(1).getText(), "User Name");
+				
+				
+				
+				
+			
+				
+				
+			}	
+			
 			
 		
 		
