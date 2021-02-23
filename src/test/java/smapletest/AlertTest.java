@@ -79,12 +79,13 @@ static WebDriver driver;
 		driver.get("https://demoqa.com/radio-button");
 		
 		
-		WebElement element = 	driver.findElement(By.xpath("//input[@type=\"radio\",@name= \"like\"]"));		
+	//	WebElement element = 	driver.findElement(By.xpath("//input[@type=\"radio\" and @name= \"like\"]"));		
 	
+		WebElement element = 	driver.findElement(By.xpath("//input[contains(@name,\"lik\")]"));	
 		
 		System.out.println(element.getText());
 		
-		element.click();
+		System.out.println(element.getSize());
 		
 			
 	}
