@@ -1,5 +1,12 @@
 package smapletest;
+//package basepkg;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+
+import basepkg.BaseHelper;
+
+import org.testng.AssertJUnit;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -16,33 +23,13 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class loginTest {
+public class loginTest extends BaseHelper {
+	//WebDriver driver;
 	
-	static WebDriver driver;
-	
-	@BeforeTest
-	public void setup()
-	{
-		System.setProperty("webdriver.gecko.driver", "./geckodriver.exe");
-		
-		driver = new FirefoxDriver();				
-		driver.manage().window().maximize();
-		
-		//driver.navigate().to(URL VAlue);
-		
-	
-		
+	public loginTest() {
+		//super();		
 	}
-	
-	
-	
-	@AfterTest
-	public void tearDown()
-	{		
-		driver.quit();
-	}
-	
-	
+		
 	public boolean validLogin()
 	{
 		driver.get("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
@@ -56,8 +43,8 @@ public class loginTest {
 		driver.findElement(By.id("btnLogin")).click();
 		
 		
-		Assert.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard");
-		Assert.assertEquals(driver.getTitle(), "OrangeHRM");
+		AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard");
+		AssertJUnit.assertEquals(driver.getTitle(), "OrangeHRM");
 		
 		return true;
 	}
@@ -78,8 +65,8 @@ public class loginTest {
 		driver.findElement(By.id("btnLogin")).click();
 		
 		
-		Assert.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard");
-		Assert.assertEquals(driver.getTitle(), "OrangeHRM");
+		AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard");
+		AssertJUnit.assertEquals(driver.getTitle(), "OrangeHRM");
 		
 		
 		
@@ -99,8 +86,8 @@ public class loginTest {
 		driver.findElement(By.id("btnLogin")).click();
 		
 		
-		Assert.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard01");
-		Assert.assertEquals(driver.getTitle(), "OrangeHRM");
+		AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard01");
+		AssertJUnit.assertEquals(driver.getTitle(), "OrangeHRM");
 			
 		
 	}
@@ -118,9 +105,9 @@ public class loginTest {
 		driver.findElement(By.id("btnLogin")).click();
 		
 		
-		Assert.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/auth/validateCredentials");
+		AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/auth/validateCredentials");
 		
-		Assert.assertEquals(driver.findElement(By.id("spanMessage")).getText(), "Invalid credentials");
+		AssertJUnit.assertEquals(driver.findElement(By.id("spanMessage")).getText(), "Invalid credentials");
 		
 		//Assert.assertEquals(driver.getTitle(), "OrangeHRM");
 			
@@ -153,7 +140,7 @@ public class loginTest {
 			WebElement admin = driver.findElement(By.id("menu_admin_viewAdminModule"));
 			admin.click();
 			
-			Assert.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/admin/viewSystemUsers");
+			AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/admin/viewSystemUsers");
 			
 			driver.findElement(By.id("searchSystemUser_userName")).sendKeys("Admin");;
 			
@@ -173,12 +160,12 @@ public class loginTest {
 				
 			}
 			
-			Assert.assertEquals(headerRows.size(), 5);
+			AssertJUnit.assertEquals(headerRows.size(), 5);
 			
-			Assert.assertEquals(headerRows.get(1).getText(), "Username"); // 1. User Name  2. UserName 3. UN 4. username 5. UserN@me
+			AssertJUnit.assertEquals(headerRows.get(1).getText(), "Username"); // 1. User Name  2. UserName 3. UN 4. username 5. UserN@me
 			
 			//System.out.println(headerRows.get(1).getText());
-			Assert.assertNotNull(headerRows.get(1).getText(), "User Name can't ne empty");
+			AssertJUnit.assertNotNull(headerRows.get(1).getText(), "User Name can't ne empty");
 			
 			Assert.assertNotEquals(headerRows.get(1).getText(), "User Name");
 		}
@@ -200,7 +187,7 @@ public class loginTest {
 				WebElement admin = driver.findElement(By.id("menu_admin_viewAdminModule"));
 				admin.click();
 				
-				Assert.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/admin/viewSystemUsers");
+				AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/admin/viewSystemUsers");
 				
 				driver.findElement(By.id("searchSystemUser_userName")).sendKeys("Admin");
 				
@@ -232,12 +219,12 @@ public class loginTest {
 					
 				}
 				
-				Assert.assertEquals(headerRows.size(), 5);
+				AssertJUnit.assertEquals(headerRows.size(), 5);
 				
-				Assert.assertEquals(headerRows.get(1).getText(), "Username"); // 1. User Name  2. UserName 3. UN 4. username 5. UserN@me
+				AssertJUnit.assertEquals(headerRows.get(1).getText(), "Username"); // 1. User Name  2. UserName 3. UN 4. username 5. UserN@me
 				
 				//System.out.println(headerRows.get(1).getText());
-				Assert.assertNotNull(headerRows.get(1).getText(), "User Name can't ne empty");
+				AssertJUnit.assertNotNull(headerRows.get(1).getText(), "User Name can't ne empty");
 				
 				Assert.assertNotEquals(headerRows.get(1).getText(), "User Name");
 				

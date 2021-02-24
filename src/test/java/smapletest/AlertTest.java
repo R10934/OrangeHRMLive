@@ -1,5 +1,7 @@
 package smapletest;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -25,6 +27,7 @@ static WebDriver driver;
 	}
 	
 	
+	@AfterMethod
 	@AfterTest
 	public void tearDown()
 	{		

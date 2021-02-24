@@ -1,5 +1,8 @@
 package smapletest;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,6 +35,7 @@ public class OtherWebControlTest {
 	
 	
 	
+	@AfterMethod
 	@AfterTest
 	public void tearDown()
 	{		
@@ -52,8 +56,8 @@ public class OtherWebControlTest {
 		driver.findElement(By.id("btnLogin")).click();
 		
 		
-		Assert.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard");
-		Assert.assertEquals(driver.getTitle(), "OrangeHRM");
+		AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard");
+		AssertJUnit.assertEquals(driver.getTitle(), "OrangeHRM");
 		
 		return true;
 	}

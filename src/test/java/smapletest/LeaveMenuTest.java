@@ -1,5 +1,8 @@
 package smapletest;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +16,8 @@ public class LeaveMenuTest {
 	  private WebDriver driver;
 	
 	
-	  @BeforeTest
+	  @BeforeMethod
+	@BeforeTest
 	  public void setUp() {
 		  
 		System.setProperty("webdriver.gecko.driver.driver", "./geckodriver.exe");		
@@ -27,7 +31,8 @@ public class LeaveMenuTest {
 	    //vars = new HashMap<String, Object>();
 	  }
 	  
-	  @AfterTest
+	  @AfterMethod
+	@AfterTest
 	  public void tearDown() {
 	    driver.quit();
 	  }
