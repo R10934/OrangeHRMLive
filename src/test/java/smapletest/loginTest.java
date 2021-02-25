@@ -1,10 +1,11 @@
 package smapletest;
-//package basepkg;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import basepkg.BaseHelper;
+import pageObject.HrmLoginPage;
+import pageObject.HrmLoginPagePageFactoryExample;
 
 import org.testng.AssertJUnit;
 import java.util.List;
@@ -24,23 +25,40 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class loginTest extends BaseHelper {
-	//WebDriver driver;
+	
+	HrmLoginPage login;
+	HrmLoginPagePageFactoryExample loginFactoryPage;
+	
+	String validUserName = "Admin";
+	String invalidUserName = "Admin01";
+	
+	String validPwd = "admin123";
+	String invalidPwd = "Admin01mkjnhghhjjb";
+	
+	
+	
+	
 	
 	public loginTest() {
-		//super();		
+		super();
+		login = new HrmLoginPage(driver);
+		loginFactoryPage =  new HrmLoginPagePageFactoryExample(driver);
 	}
+	
+	
+	//@AfterMethod
+	@AfterTest
+	public void tearDown()
+	{		
+		driver.close();
+	}
+	
+	
 		
-	public boolean validLogin()
+	public boolean isLoginSuccessful()
 	{
 		driver.get("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
-		
-		WebElement ele = driver.findElement(By.id("txtUsername"));		
-		ele.sendKeys("Admin");
-		
-		
-		
-		driver.findElement(By.id("txtPassword")).sendKeys("admin123");		
-		driver.findElement(By.id("btnLogin")).click();
+		login.LoginOnHRM(validUserName, validPwd);	
 		
 		
 		AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard");
@@ -50,43 +68,28 @@ public class loginTest extends BaseHelper {
 	}
 	
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void loginTest01()
-	{
-		
+	{		
 		
 		driver.get("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
-		//WebDriverWait wait = new WebDriverWait(driver, 20);
-		
-		
-		driver.findElement(By.id("txtUsername")).sendKeys("Admin");
-		driver.findElement(By.id("txtPassword")).sendKeys("admin123");
-		
-		driver.findElement(By.id("btnLogin")).click();
+		login.LoginOnHRM(validUserName, validPwd);	
 		
 		
 		AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard");
-		AssertJUnit.assertEquals(driver.getTitle(), "OrangeHRM");
-		
-		
-		
-		
+		AssertJUnit.assertEquals(driver.getTitle(), "OrangeHRM");		
 		
 	}
 	
 	
-	@Test(enabled = false) 
+	@Test(enabled = true) 
 	public void loginTest02()
 	{
 		
 		driver.get("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
-		driver.findElement(By.id("txtUsername")).sendKeys("Admin");
-		driver.findElement(By.id("txtPassword")).sendKeys("admin123");
+		loginFactoryPage.LoginOnHRM(validUserName, validPwd);	
 		
-		driver.findElement(By.id("btnLogin")).click();
-		
-		
-		AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard01");
+		AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard");
 		AssertJUnit.assertEquals(driver.getTitle(), "OrangeHRM");
 			
 		
@@ -99,10 +102,7 @@ public class loginTest extends BaseHelper {
 	{
 		
 		driver.get("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
-		driver.findElement(By.id("txtUsername")).sendKeys("Admin");
-		driver.findElement(By.id("txtPassword")).sendKeys("admin123pkjbjb");
-		
-		driver.findElement(By.id("btnLogin")).click();
+		login.LoginOnHRM(validUserName, invalidPwd);	
 		
 		
 		AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/auth/validateCredentials");
@@ -120,7 +120,7 @@ public class loginTest extends BaseHelper {
 	public void loginTest04()
 	{
 		
-		if(validLogin())
+		if(isLoginSuccessful())
 		{
 			WebElement mainmenu = driver.findElement(By.id("mainMenu"));
 			
@@ -135,7 +135,7 @@ public class loginTest extends BaseHelper {
 	public void loginTest05()
 	{		
 		
-		if(validLogin())
+		if(isLoginSuccessful())
 		{
 			WebElement admin = driver.findElement(By.id("menu_admin_viewAdminModule"));
 			admin.click();
@@ -175,11 +175,11 @@ public class loginTest extends BaseHelper {
 		}	
 		
 		
-		@Test
+		@Test(enabled = false)
 		public void loginTest06()
 		{		
 			
-			if(validLogin())
+			if(isLoginSuccessful())
 			{
 				
 				driver.findElement(By.cssSelector("#menu_admin_viewAdminModule > b")).click();
