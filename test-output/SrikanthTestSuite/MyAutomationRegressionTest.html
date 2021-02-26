@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>TestNG:  Default test</title>
+<title>TestNG:  MyAutomationRegressionTest</title>
 <link href="../testng.css" rel="stylesheet" type="text/css" />
 <link href="../my-testng.css" rel="stylesheet" type="text/css" />
 
@@ -53,13 +53,13 @@ function toggleAllBoxes() {
 
 </head>
 <body>
-<h2 align='center'>Default test</h2><table border='1' align="center">
+<h2 align='center'>MyAutomationRegressionTest</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>2/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>5/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Feb 26 11:51:03 IST 2021</td>
+<td>Started on:</td><td>Wed Feb 24 12:13:54 IST 2021</td>
 </tr>
-<tr><td>Total time:</td><td>84 seconds (84011 ms)</td>
+<tr><td>Total time:</td><td>122 seconds (122529 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,46 +75,29 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='smapletest.loginTest.loginTest01()'><b>loginTest01</b><br>Test class: smapletest.loginTest</td>
-<td><div><pre>java.lang.AssertionError: expected:&lt;https://opensource-demo.orangehrmlive.com/index.php/auth/login&gt; but was:&lt;https://opensource-demo.orangehrmlive.com/index.php/dashboard&gt;
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:115)
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:125)
-	at helper.helper.isLoginSuccessful(helper.java:19)
-	at smapletest.loginTest.loginTest01(loginTest.java:67)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+<td title='smapletest.OtherWebControlTest.OtherControlTest02()'><b>OtherControlTest02</b><br>Test class: smapletest.OtherWebControlTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;IN-MH1LPW101884&apos;, ip: &apos;192.168.10.15&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.1&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:125)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:277)
+	at smapletest.OtherWebControlTest.validLogin(OtherWebControlTest.java:48)
+	at smapletest.OtherWebControlTest.OtherControlTest02(OtherWebControlTest.java:117)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:764)
-	at org.testng.TestRunner.run(TestRunner.java:585)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.runSuites(TestNG.java:1069)
-	at org.testng.TestNG.run(TestNG.java:1037)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1481751887", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1481751887'><pre>java.lang.AssertionError: expected:&lt;https://opensource-demo.orangehrmlive.com/index.php/auth/login&gt; but was:&lt;https://opensource-demo.orangehrmlive.com/index.php/dashboard&gt;
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:115)
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:125)
-	at helper.helper.isLoginSuccessful(helper.java:19)
-	at smapletest.loginTest.loginTest01(loginTest.java:67)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace666312528", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace666312528'><pre>org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;IN-MH1LPW101884&apos;, ip: &apos;192.168.10.15&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.1&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:125)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:277)
+	at smapletest.OtherWebControlTest.validLogin(OtherWebControlTest.java:48)
+	at smapletest.OtherWebControlTest.OtherControlTest02(OtherWebControlTest.java:117)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -144,8 +127,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>38</td>
-<td>smapletest.loginTest@2f2bf0e2</td></tr>
+<td>0</td>
+<td>smapletest.OtherWebControlTest@78ffe6dc</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -155,15 +138,30 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='smapletest.loginTest.loginTest02()'><b>loginTest02</b><br>Test class: smapletest.loginTest</td>
+<td title='smapletest.OtherWebControlTest.OtherControlTest01()'><b>OtherControlTest01</b><br>Test class: smapletest.OtherWebControlTest</td>
 <td></td>
-<td>40</td>
-<td>smapletest.loginTest@2f2bf0e2</td></tr>
+<td>16</td>
+<td>smapletest.OtherWebControlTest@78ffe6dc</td></tr>
 <tr>
-<td title='smapletest.loginTest.loginTest04()'><b>loginTest04</b><br>Test class: smapletest.loginTest</td>
+<td title='cssselectortest.CssSelectorTest.cssTest01()'><b>cssTest01</b><br>Test class: cssselectortest.CssSelectorTest</td>
 <td></td>
-<td>3</td>
-<td>smapletest.loginTest@2f2bf0e2</td></tr>
+<td>4</td>
+<td>cssselectortest.CssSelectorTest@76f2bbc1</td></tr>
+<tr>
+<td title='smapletest.loginTest.loginTest06()'><b>loginTest06</b><br>Test class: smapletest.loginTest</td>
+<td></td>
+<td>18</td>
+<td>smapletest.loginTest@5f683daf</td></tr>
+<tr>
+<td title='smapletest.LeaveMenuTest.myTest()'><b>myTest</b><br>Test class: smapletest.LeaveMenuTest</td>
+<td></td>
+<td>14</td>
+<td>smapletest.LeaveMenuTest@8317c52</td></tr>
+<tr>
+<td title='smapletest.AlertTest.radioBtnTest01()'><b>radioBtnTest01</b><br>Test class: smapletest.AlertTest</td>
+<td></td>
+<td>4</td>
+<td>smapletest.AlertTest@68e965f5</td></tr>
 </table><p>
 </body>
 </html>

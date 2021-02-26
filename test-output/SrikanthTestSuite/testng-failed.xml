@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [SrikanthTestSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="MyAutomationRegressionTest(failed)">
+    <classes>
+      <class name="smapletest.OtherWebControlTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="OtherControlTest02"/>
+        </methods>
+      </class> <!-- smapletest.OtherWebControlTest -->
+    </classes>
+  </test> <!-- MyAutomationRegressionTest(failed) -->
+</suite> <!-- Failed suite [SrikanthTestSuite] -->

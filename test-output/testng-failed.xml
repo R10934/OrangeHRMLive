@@ -5,8 +5,8 @@
     <classes>
       <class name="smapletest.loginTest">
         <methods>
-          <include name="loginTest02"/>
           <include name="tearDown"/>
+          <include name="loginTest01"/>
         </methods>
       </class> <!-- smapletest.loginTest -->
     </classes>
