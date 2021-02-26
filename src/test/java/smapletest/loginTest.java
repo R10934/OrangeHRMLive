@@ -4,6 +4,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import basepkg.BaseHelper;
+import helper.helper;
 import pageObject.HrmLoginPage;
 import pageObject.HrmLoginPagePageFactoryExample;
 
@@ -36,6 +37,10 @@ public class loginTest extends BaseHelper {
 	String invalidPwd = "Admin01mkjnhghhjjb";
 	
 	
+	String loginURL ="https://opensource-demo.orangehrmlive.com/index.php/auth/login";
+	String expectedDashBoardURL = "https://opensource-demo.orangehrmlive.com/index.php/dashboard";
+	
+	
 	
 	
 	
@@ -53,20 +58,7 @@ public class loginTest extends BaseHelper {
 		driver.close();
 	}
 	
-	
 		
-	public boolean isLoginSuccessful()
-	{
-		driver.get("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
-		login.LoginOnHRM(validUserName, validPwd);	
-		
-		
-		AssertJUnit.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/index.php/dashboard");
-		AssertJUnit.assertEquals(driver.getTitle(), "OrangeHRM");
-		
-		return true;
-	}
-	
 	
 	@Test(enabled = true)
 	public void loginTest01()
@@ -116,14 +108,17 @@ public class loginTest extends BaseHelper {
 	
 	
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void loginTest04()
 	{
 		
-		if(isLoginSuccessful())
+		
+		
+		boolean isLoginSuccessful = helper.isLoginSuccessful(driver, loginURL, validUserName, validPwd, expectedDashBoardURL);
+		
+		if(isLoginSuccessful)
 		{
-			WebElement mainmenu = driver.findElement(By.id("mainMenu"));
-			
+			WebElement mainmenu = driver.findElement(By.id("mainMenu"));			
 			System.out.println(mainmenu.getText());
 		}	
 		
@@ -135,7 +130,9 @@ public class loginTest extends BaseHelper {
 	public void loginTest05()
 	{		
 		
-		if(isLoginSuccessful())
+		boolean isLoginSuccessful = helper.isLoginSuccessful(driver, loginURL, validUserName, validPwd, expectedDashBoardURL);
+		
+		if(isLoginSuccessful)
 		{
 			WebElement admin = driver.findElement(By.id("menu_admin_viewAdminModule"));
 			admin.click();
@@ -179,7 +176,9 @@ public class loginTest extends BaseHelper {
 		public void loginTest06()
 		{		
 			
-			if(isLoginSuccessful())
+			boolean isLoginSuccessful = helper.isLoginSuccessful(driver, loginURL, validUserName, validPwd, expectedDashBoardURL);
+			
+			if(isLoginSuccessful)
 			{
 				
 				driver.findElement(By.cssSelector("#menu_admin_viewAdminModule > b")).click();
